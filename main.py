@@ -9,25 +9,26 @@ nr_letters= int(input("How many letters would you like in your password?\n"))
 nr_symbols = int(input(f"How many symbols would you like?\n"))
 nr_numbers = int(input(f"How many numbers would you like?\n"))
 
-letter_sequence = ""
-counterl = 0
-while counterl < nr_letters:
-  letter_sequence = str(letters[random.randint(0, len(letters))]) + str(letter_sequence)
-  counterl = counterl + 1
-symbol_sequence = ""
-counters = 0
-while counters < nr_symbols:
-  symbol_sequence = str(symbols[random.randint(0, len(symbols))]) + str(symbol_sequence)
-  counters = counters + 1
-number_sequence = ""
-countern = 0
-while countern < nr_numbers:
-  number_sequence = str(numbers[random.randint(0, len(numbers))]) + str(number_sequence)
-  countern = countern + 1
-print(letter_sequence + symbol_sequence + number_sequence) 
+password = ""
+for char in range(0, nr_letters):
+  password += random.choice(letters)
+for char in range(0, nr_symbols):
+  password += random.choice(symbols)
+for char in range(0, nr_numbers):
+  password += random.choice(numbers)
+print(password)
+random_password_list = []
 
-  #Level - Order not randomised:
+list_password = list(password)
+print(list_password)
+random.shuffle(list_password)
+print(list_password)
 
+random_password = ""
+for item in list_password:
+  random_password = random_password + item
+
+print(random_password)
 
 #Hard Level - Order of characters randomised:
 #e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
